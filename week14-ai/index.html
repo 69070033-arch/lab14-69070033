@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MySite — Simple HTML, CSS &amp; JS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Header / Navigation ===== -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#home" class="logo">My<span>Site</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#todo">To-Do</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#9788;</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <!-- Swap the src for a local file (e.g. "images/photo.jpg") to go offline -->
+        <img
+          class="hero-image"
+          id="heroImage"
+          src="image.jpg"
+          alt="Sample banner photograph loaded from the Lorem Picsum placeholder service"
+          width="1200"
+          height="500"
+        />
+
+        <h1>Hello, World!</h1>
+        <p class="lead">
+          A simple, responsive website built with nothing but plain
+          HTML, CSS and JavaScript.
+        </p>
+        <div class="hero-actions">
+          <a href="#features" class="btn btn-primary">Learn more</a>
+          <button class="btn btn-ghost" id="clickBtn">Clicked 0 times</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Features</h2>
+        <p class="section-sub reveal">Three things this little site knows how to do.</p>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon">&#9881;</div>
+            <h3>Responsive layout</h3>
+            <p>Uses Flexbox and CSS Grid so it looks good on phones, tablets and desktops.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">&#127756;</div>
+            <h3>Light &amp; dark mode</h3>
+            <p>One button swaps CSS variables and your choice is remembered next time.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">&#9889;</div>
+            <h3>Vanilla JavaScript</h3>
+            <p>No frameworks, no libraries &mdash; just a handful of small, readable scripts.</p>
+          </article>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <span class="stat-number" data-count="100">0</span>
+            <span class="stat-label">% Vanilla</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-count="3">0</span>
+            <span class="stat-label">Files</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-count="0">0</span>
+            <span class="stat-label">Dependencies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== To-Do list ===== -->
+    <section id="todo" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title reveal">To-Do List</h2>
+        <p class="section-sub reveal">Add and remove tasks &mdash; they are saved in your browser's local storage.</p>
+
+        <div class="todo reveal">
+          <form id="todoForm" class="todo-form" autocomplete="off">
+            <input
+              type="text"
+              id="todoInput"
+              name="todo"
+              placeholder="What needs to be done?"
+              maxlength="120"
+              aria-label="New task"
+            />
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+
+          <ul class="todo-list" id="todoList"></ul>
+
+          <p class="todo-empty" id="todoEmpty">Nothing here yet. Add your first task above.</p>
+
+          <div class="todo-footer">
+            <span id="todoCount">0 items left</span>
+            <button type="button" class="btn btn-ghost btn-small" id="todoClear">Clear completed</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section section-alt">
+      <div class="container about">
+        <div class="reveal">
+          <h2 class="section-title">About</h2>
+          <p>
+            This page is intentionally small and readable. The whole design lives in
+            <code>styles.css</code>, the behaviour lives in <code>script.js</code>, and
+            the markup in <code>index.html</code>. Edit any of them and refresh the
+            browser to see your changes instantly.
+          </p>
+          <p>
+            It is currently <strong id="clock">--:--:--</strong> in your browser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-sub reveal">Try submitting it &mdash; the form validates in the browser.</p>
+
+        <form id="contactForm" class="form reveal" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" />
+            <small class="error" id="nameError"></small>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+            <small class="error" id="emailError"></small>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Say something nice..."></textarea>
+            <small class="error" id="messageError"></small>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> MySite. Built by hand.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
